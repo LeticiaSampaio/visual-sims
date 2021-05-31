@@ -1,0 +1,12 @@
+.card_sim{
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 4px 4px 10px 0px rgb(0 0 0 / 55%);
+}
+
+.card_sim img{
+    width: 300px;
+}

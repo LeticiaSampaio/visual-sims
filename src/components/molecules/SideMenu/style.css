@@ -1,0 +1,27 @@
+.sideMenu {
+    background-color: var(--yellow-grey-5-hex);
+    width: 350px;
+    height: 100%;
+    text-align: center;
+}
+
+.explanation {
+    font-size: 14px;
+    padding: 0 15px;
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+.explanation::-webkit-scrollbar {
+    width: 6px;
+}
+.explanation::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px transparent;
+}
+.explanation::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 20px;
+}
+.explanation::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
