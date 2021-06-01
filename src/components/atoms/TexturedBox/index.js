@@ -4,7 +4,10 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 
 const TexturedBox = (props) => {
-    const texture = useLoader(THREE.TextureLoader, props.image)
+    const textureNormal = useLoader(THREE.TextureLoader, props.image[0])
+    const textureSides = useLoader(THREE.TextureLoader, props.image[1])
+    const textureZoomIn = useLoader(THREE.TextureLoader, props.image[2])
+
     // This reference will give us direct access to the THREE.Mesh object
     const mesh = useRef()
     // Set up state for the hovered and active state
@@ -23,12 +26,21 @@ const TexturedBox = (props) => {
             {...props}
             position={props.move ? position : props.position}
             ref={mesh}
-            scale={active ? (1.5 + props.scale) : 1.5}
+            scale={1.5}
             onClick={(event) => setActive(!active)}
             onPointerOver={(event) => setHover(true)}
             onPointerOut={(event) => setHover(false)}>
             <boxGeometry args={props.size} />
-            <meshBasicMaterial color={hovered ? 'hotpink' : 'white'} attach="material" map={texture} toneMapped={false} />
+            <meshStandardMaterial map={textureSides} attachArray="material" />
+            <meshStandardMaterial map={textureSides} attachArray="material" />
+            <meshStandardMaterial map={textureSides} attachArray="material" />
+            <meshStandardMaterial map={textureSides} attachArray="material" />
+            <meshStandardMaterial
+                map={props.active ? (props.sync ? textureNormal : textureZoomIn) : textureNormal}
+                attachArray="material"
+                color={hovered ? 'hotpink' : 'white'}
+            />
+            <meshStandardMaterial map={textureSides} attachArray="material" />
         </animated.mesh>
     )
 }
