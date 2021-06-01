@@ -9,7 +9,7 @@ const Header = ({ title }) => {
     let history = useHistory();
 
     function redirectHome() {
-        history.push("/");
+        history.goBack();
     }
 
     return (<div className="header">

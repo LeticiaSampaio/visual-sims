@@ -1,5 +1,6 @@
 import './App.css';
-import SimulationMenu from '../components/organisms/SimulationMenu';
+
+import SimulationGallery from '../pages/SimulationGallery';
 import Simulation from '../pages/Simulation';
 import Home from '../pages/Home';
 
@@ -14,7 +15,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/simulacoes">
-          <SimulationMenu />
+          <SimulationGallery />
         </Route>
         <Route path="/simulacao/:simulation?">
           <Simulation />
