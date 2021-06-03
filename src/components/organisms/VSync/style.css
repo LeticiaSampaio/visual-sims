@@ -18,6 +18,23 @@
     padding: 10px;
 }
 
+.title-and-tooltip {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+}
+
+.title-and-tooltip > div {
+  margin: 0 3px;
+  color: var(--yellow-grey-4-hex);
+}
+
+div > svg{
+  width: 20px;
+  height: 20px;
+}
+
 .radio-list {
     display: flex;
     flex-flow: column;
@@ -29,6 +46,10 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
     text-align: right;
+}
+
+.btn-onoff > .title-and-tooltip {
+  height: 24px;
 }
 
 .btn-onoff > h4 {
@@ -92,4 +113,12 @@
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  .modal-aviso {
+    padding: 10px 20px;
+  }
+
+  .modal-aviso > p {
+    margin: 40px 0;
   }

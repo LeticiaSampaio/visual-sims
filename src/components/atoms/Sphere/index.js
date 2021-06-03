@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 
-const Cylinder = (props) => {
+const Sphere = (props) => {
     // This reference will give us direct access to the THREE.Mesh object
     const mesh = useRef()
     // Set up state for the hovered and active state
@@ -14,7 +14,7 @@ const Cylinder = (props) => {
         position: active ? [props.position[0] + props.move, props.position[1], props.position[2]] : props.position,
     })
     // Subscribe this component to the render-loop, rotate the mesh every frame
-    useFrame((state, delta) => { if (props.movement) { (mesh.current.position.x > props.movement[1]) ? (mesh.current.position.x = -props.movement[1]) : (mesh.current.position.x += props.movement[0]) } })
+    useFrame((state, delta) => (mesh.current.rotation.x))
     // Return the view, these are regular Threejs elements expressed in JSX
     return (
         <animated.mesh
@@ -25,10 +25,10 @@ const Cylinder = (props) => {
             onClick={(event) => setActive(!active)}
             onPointerOver={(event) => props.action(true)}
             onPointerOut={(event) => props.action(false)}>
-            <cylinderGeometry args={props.size} />
+            <sphereGeometry args={props.size} />
             <meshStandardMaterial color={hovered ? 'hotpink' : props.color} />
         </animated.mesh>
     )
 }
 
-export default Cylinder;
+export default Sphere;

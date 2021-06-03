@@ -27,25 +27,23 @@ const MonitorScreen = (props) => {
 
     return (
         <>
-            <Box position={[3, 1.2, 0]} size={[2.2, 0.2, 0.25]} color='#000000' />{/* screen top */}
-            <Box position={[3, -1.2, 0]} size={[2.2, 0.2, 0.25]} color='#000000' />{/* screen bottom */}
-            <Box position={[1.5, 0, 0]} size={[0.2, 1.6, 0.25]} color='#000000' />{/* screen left */}
-            <Box position={[4.5, 0, 0]} size={[0.2, 1.6, 0.25]} color='#000000' />{/* screen right */}
-            <Box position={[3, -1.5, 0]} size={[0.4, 0.4, 0.25]} color='#000000' />{/* stand */}
-            <Box position={[3, -1.8, 0]} size={[1, 0.1, 0.25]} color='#000000' />{/* stand base */}
+            <Box position={[3.5, 1.2, 0]} size={[2.1, 0.1, 0.25]} color='#000000' />{/* screen top */}
+            <Box position={[3.5, -1.2, 0]} size={[2.1, 0.1, 0.25]} color='#000000' />{/* screen bottom */}
+            <Box position={[1.95, 0, 0]} size={[0.1, 1.7, 0.25]} color='#000000' />{/* screen left */}
+            <Box position={[5.05, 0, 0]} size={[0.1, 1.7, 0.25]} color='#000000' />{/* screen right */}
+            <Box position={[3.5, -1.5, 0]} size={[0.4, 0.4, 0.25]} color='#000000' />{/* stand */}
+            <Box position={[3.5, -1.8, 0]} size={[1, 0.1, 0.25]} color='#000000' />{/* stand base */}
 
-            <TexturedBox position={[3, 0.75, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
+            <TexturedBox position={[3.5, 0.75, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
                 image={[imgTop, imgTop, imgTopIn]}
-                scale={-0.1}
                 active={active}
                 sync={sync}
             />
-            <TexturedBox position={[3, 0, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
+            <TexturedBox position={[3.5, 0, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
                 image={[imgMiddle, imgMiddle, imgMiddle]}
             />
-            <TexturedBox position={[3, -0.75, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
+            <TexturedBox position={[3.5, -0.75, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
                 image={[imgBottom, imgBottom, imgBottomIn]}
-                scale={0.1}
                 active={active}
                 sync={sync}
             />
