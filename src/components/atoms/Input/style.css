@@ -1,0 +1,23 @@
+input {
+    margin: 5px 0;
+    border: 1px solid var(--yellow-grey-1-hex);
+    border-radius: 5px;
+    height: 23px;
+    text-align: center;
+    outline: none;
+}
+
+input:focus, input:focus-visible {
+    border-color: var(--yellow-grey-4-hex);
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

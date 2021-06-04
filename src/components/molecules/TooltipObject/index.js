@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { extend, Canvas } from '@react-three/fiber';
-import { useSpring, animated } from '@react-spring/three';
+import React from 'react';
+import { extend } from '@react-three/fiber';
 import { Text } from "troika-three-text";
 import fonts from "./fonts";
 import Plane from '../../atoms/Plane';

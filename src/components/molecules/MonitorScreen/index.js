@@ -11,7 +11,7 @@ import imgBottomIn from '../../../images/v-sync/example_screen_bottom_zoom_in.pn
 
 const MonitorScreen = (props) => {
     const [sync, setSync] = useState(props.fps === props.frameRate);
-    const [frameRate, setFrameRate] = useState(500 - props.frameRate);
+    const frameRate = useState(500 - props.frameRate);
     const [active, setActive] = useState(false);
 
     useEffect(() => {

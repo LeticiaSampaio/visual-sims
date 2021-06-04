@@ -3,19 +3,16 @@ import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 
 const Sphere = (props) => {
-    // This reference will give us direct access to the THREE.Mesh object
     const mesh = useRef()
-    // Set up state for the hovered and active state
-    const [hovered, setHover] = useState(false)
     const [active, setActive] = useState(false)
 
     const { position } = useSpring({
         loop: true,
         position: active ? [props.position[0] + props.move, props.position[1], props.position[2]] : props.position,
     })
-    // Subscribe this component to the render-loop, rotate the mesh every frame
+
     useFrame((state, delta) => (mesh.current.rotation.x))
-    // Return the view, these are regular Threejs elements expressed in JSX
+
     return (
         <animated.mesh
             {...props}
@@ -26,7 +23,7 @@ const Sphere = (props) => {
             onPointerOver={(event) => props.action(true)}
             onPointerOut={(event) => props.action(false)}>
             <sphereGeometry args={props.size} />
-            <meshStandardMaterial color={hovered ? 'hotpink' : props.color} />
+            <meshStandardMaterial color={props.color} />
         </animated.mesh>
     )
 }

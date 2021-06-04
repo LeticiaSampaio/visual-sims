@@ -1,7 +1,6 @@
 import './style.css';
 import React, { useState } from 'react';
 import { extend, Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import { Text } from "troika-three-text";
 import fonts from "./fonts";
 
@@ -67,7 +66,6 @@ const VSync = () => {
             <div class="content">
                 <div class="canvasHolder">
                     <Canvas>
-                        {/* <OrbitControls /> */}
                         <ambientLight color="white" />
                         <pointLight position={[10, 10, 10]} />
                         <text

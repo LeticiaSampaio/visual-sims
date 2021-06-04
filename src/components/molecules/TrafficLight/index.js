@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 
 import Box from '../../atoms/Box';
@@ -6,7 +7,7 @@ import TooltipObject from '../../molecules/TooltipObject';
 
 const TrafficLight = (props) => {
     const [sync, setSync] = useState(props.fps === props.frameRate);
-    const [frameRate, setFrameRate] = useState(500 - props.frameRate);
+    const frameRate = useState(500 - props.frameRate);
     const [active, setActive] = useState(false);
     const [hovered, setHover] = useState(false);
     const [tooltipOpened, setTooltipOpened] = useState(false);
