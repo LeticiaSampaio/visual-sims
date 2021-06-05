@@ -43,7 +43,6 @@ const NewSimulation = () => {
 
     function closeModal() {
         setIsOpen(false);
-        console.log(position);
     }
 
     function boxHandleClick() {

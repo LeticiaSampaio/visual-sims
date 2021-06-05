@@ -3,27 +3,40 @@ import React, { useState, useEffect } from 'react';
 import Box from '../../atoms/Box';
 import TexturedBox from '../../atoms/TexturedBox';
 
-import imgTop from '../../../images/v-sync/example_screen_top.png'
-import imgTopIn from '../../../images/v-sync/example_screen_top_zoom_in.png'
-import imgMiddle from '../../../images/v-sync/example_screen_middle.png'
-import imgBottom from '../../../images/v-sync/example_screen_bottom.png'
-import imgBottomIn from '../../../images/v-sync/example_screen_bottom_zoom_in.png'
+import img0 from '../../../images/v-sync/new_example/new_example_screen_0.png'
+import img1 from '../../../images/v-sync/new_example/new_example_screen_1.png'
+import img2 from '../../../images/v-sync/new_example/new_example_screen_2.png'
+import img3 from '../../../images/v-sync/new_example/new_example_screen_3.png'
+import img4 from '../../../images/v-sync/new_example/new_example_screen_4.png'
+
+import imgZoom0 from '../../../images/v-sync/new_example_zoom/new_example_screen_zoom_0.png'
+import imgZoom1 from '../../../images/v-sync/new_example_zoom/new_example_screen_zoom_1.png'
+import imgZoom2 from '../../../images/v-sync/new_example_zoom/new_example_screen_zoom_2.png'
+import imgZoom3 from '../../../images/v-sync/new_example_zoom/new_example_screen_zoom_3.png'
+import imgZoom4 from '../../../images/v-sync/new_example_zoom/new_example_screen_zoom_4.png'
 
 const MonitorScreen = (props) => {
-    const [sync, setSync] = useState(props.fps === props.frameRate);
-    const frameRate = useState(500 - props.frameRate);
-    const [active, setActive] = useState(false);
+    const [frameSteps, setFrameSteps] = useState(0);
+    const delay = (600 - (props.frameRate * 3));
+    const [first, setFirst] = useState(true);
 
     useEffect(() => {
-        setSync(props.fps === props.frameRate);
-        const timeout = setTimeout(() => {
-            if (!sync) {
-                setActive(!active);
-            }
-        }, frameRate);
+        setTimeout(() => {
+            setFrameSteps(frameSteps + 1);
 
-        return () => clearTimeout(timeout);
-    }, [active, frameRate, props.fps, props.frameRate, sync]);
+            if (frameSteps === 4) {
+                setFrameSteps(-1);
+                setFirst(!first);
+                if (props.vSync) {
+                    props.action(false);
+                }
+            } else {
+                if (props.vSync) {
+                    props.action(true);
+                }
+            }
+        }, delay);
+    }, [first, frameSteps, delay, props]);
 
     return (
         <>
@@ -34,18 +47,30 @@ const MonitorScreen = (props) => {
             <Box position={[3.5, -1.5, 0]} size={[0.4, 0.4, 0.25]} color='#000000' />{/* stand */}
             <Box position={[3.5, -1.8, 0]} size={[1, 0.1, 0.25]} color='#000000' />{/* stand base */}
 
-            <TexturedBox position={[3.5, 0.75, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
-                image={[imgTop, imgTop, imgTopIn]}
-                active={active}
-                sync={sync}
+            <TexturedBox position={[3.5, 0.9, 0]} size={[2, 0.3, 0.25]} color='#F2CF63'
+                image={[img0, img0, imgZoom0]}
+                show={frameSteps >= 0}
+                first={first}
             />
-            <TexturedBox position={[3.5, 0, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
-                image={[imgMiddle, imgMiddle, imgMiddle]}
+            <TexturedBox position={[3.5, 0.45, 0]} size={[2, 0.3, 0.25]} color='#F2CF63'
+                image={[img1, img1, imgZoom1]}
+                show={frameSteps >= 1}
+                first={first}
             />
-            <TexturedBox position={[3.5, -0.75, 0]} size={[2, 0.5, 0.25]} color='#F2CF63'
-                image={[imgBottom, imgBottom, imgBottomIn]}
-                active={active}
-                sync={sync}
+            <TexturedBox position={[3.5, 0, 0]} size={[2, 0.3, 0.25]} color='#F2CF63'
+                image={[img2, img2, imgZoom2]}
+                show={frameSteps >= 2}
+                first={first}
+            />
+            <TexturedBox position={[3.5, -0.45, 0]} size={[2, 0.3, 0.25]} color='#F2CF63'
+                image={[img3, img3, imgZoom3]}
+                show={frameSteps >= 3}
+                first={first}
+            />
+            <TexturedBox position={[3.5, -0.9, 0]} size={[2, 0.3, 0.25]} color='#F2CF63'
+                image={[img4, img4, imgZoom4]}
+                show={frameSteps >= 4}
+                first={first}
             />
         </>
     )

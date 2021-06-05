@@ -49,7 +49,6 @@ const SimulationGallery = () => {
                 overlayClassName="overlay"
             >
                 {modalIsOpen && (<>
-                    {console.log(cardIndex)}
                     <div class="modal-header">
                         <Button action={closeModal} type="close" name="&times;" />
                     </div>

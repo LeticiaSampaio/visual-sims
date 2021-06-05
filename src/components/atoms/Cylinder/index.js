@@ -11,7 +11,17 @@ const Cylinder = (props) => {
         position: active ? [props.position[0] + props.move, props.position[1], props.position[2]] : props.position,
     })
 
-    useFrame((state, delta) => { if (props.movement) { (mesh.current.position.x > props.movement[1]) ? (mesh.current.position.x = -props.movement[1]) : (mesh.current.position.x += props.movement[0]) } })
+    useFrame((state, delta) => {
+        if (props.movement) {
+            if (props.move && mesh.current.position.x >= props.movement[1] - props.size[2]) {
+                mesh.current.position.x = props.movement[1] - props.size[2];
+            } else {
+                (mesh.current.position.x > props.movement[1])
+                    ? (mesh.current.position.x = -props.movement[1])
+                    : (mesh.current.position.x += props.movement[0])
+            }
+        }
+    })
 
     return (
         <animated.mesh
