@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import ModalSimulation from "../../components/atoms/ModalSimulation";
 import Button from '../../components/atoms/Button';
 import Header from '../../components/atoms/Header';
@@ -7,10 +8,6 @@ import Modal from 'react-modal';
 import { simulationOptions } from '../../utils/constants/simulationOptions.js';
 
 import './style.css';
-import {
-    BrowserRouter as Router,
-    useHistory,
-} from "react-router-dom";
 
 const SimulationGallery = () => {
     let history = useHistory();
@@ -42,7 +39,7 @@ const SimulationGallery = () => {
             </div>
 
             <div className="footer">
-                <Button name="Criar nova simulação" type="primary" action={event => history.push("/")} />
+                <Button name="Criar nova simulação" type="primary" action={event => history.push("/nova-simulacao")} />
             </div>
 
             <Modal
@@ -52,7 +49,6 @@ const SimulationGallery = () => {
                 overlayClassName="overlay"
             >
                 {modalIsOpen && (<>
-                    {console.log(cardIndex)}
                     <div class="modal-header">
                         <Button action={closeModal} type="close" name="&times;" />
                     </div>

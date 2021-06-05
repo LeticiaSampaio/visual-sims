@@ -1,7 +1,6 @@
 import './style.css';
 import {
-  BrowserRouter as Router,
-  useHistory,
+  useHistory
 } from "react-router-dom";
 
 import Button from '../Button';

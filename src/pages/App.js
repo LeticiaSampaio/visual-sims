@@ -1,8 +1,9 @@
 import './App.css';
 
-import SimulationGallery from '../pages/SimulationGallery';
-import Simulation from '../pages/Simulation';
+import CreateSimulation from '../pages/CreateSimulation';
 import Home from '../pages/Home';
+import Simulation from '../pages/Simulation';
+import SimulationGallery from '../pages/SimulationGallery';
 
 import {
   BrowserRouter as Router,
@@ -14,6 +15,9 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/nova-simulacao">
+          <CreateSimulation />
+        </Route>
         <Route path="/simulacoes">
           <SimulationGallery />
         </Route>

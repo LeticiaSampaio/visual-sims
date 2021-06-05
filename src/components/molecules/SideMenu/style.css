@@ -7,6 +7,7 @@
 
 .explanation {
     font-size: 14px;
+    margin: 0;
     padding: 0 15px;
     max-height: 150px;
     overflow-y: scroll;

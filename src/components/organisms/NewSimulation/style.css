@@ -1,0 +1,39 @@
+.left-menu {
+    position: absolute;
+    width: 250px;
+    text-align: center;
+}
+
+.left-canvas {
+    width: 250px;
+    background-color: var(--yellow-grey-5-hex);
+}
+
+.right-canvas {
+    width: calc(100% - 250px);
+}
+
+.object-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    margin: 30px 0;
+}
+
+.xyz-options {
+    display: flex;
+    flex-flow: column;
+}
+
+.ReactModal__Content {
+    max-width: 500px !important;
+}
+
+.modal-header > h2{
+    margin: 0;
+}
+
+.modal-header > button, .modal-header >  button:hover {
+    height: 25px !important;
+    width: 25px !important;
+}
