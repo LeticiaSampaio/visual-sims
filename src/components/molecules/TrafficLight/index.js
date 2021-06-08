@@ -11,6 +11,7 @@ const TrafficLight = (props) => {
     const [active, setActive] = useState(false);
     const [hovered, setHover] = useState(false);
     const [tooltipOpened, setTooltipOpened] = useState(false);
+    const [glow, setGlow] = useState(false);
 
     useEffect(() => {
         if (!tooltipOpened && hovered) {
@@ -30,13 +31,20 @@ const TrafficLight = (props) => {
         return () => clearTimeout(timeout);
     }, [active, frameRate, props.fps, props.frameRate, sync]);
 
+    useEffect(() => {
+        setInterval(() => {
+            setGlow(true);
+            setGlow(false);
+        }, 5000);
+    }, []);
+
     return (
         <>
-            <Box position={props.position} size={props.size} color='#000000' action={setHover} />{/* background */}
+            <Box position={props.position} size={props.size} color={glow ? 'orange' : '#000000'} action={setHover} />background
             <Sphere position={props.position} size={[props.size[0] / 2, 32, 32]} color={props.color} action={setHover} />{/* light */}
             {hovered &&
                 <TooltipObject
-                    position={[props.position[0] + 3, props.position[1] + 0.5, props.position[2]]}
+                    position={[props.position[0] - 3, props.position[1] + 0.3, props.position[2]]}
                     size={[3, 1]}
                     fontSize={6}
                     text="O Semáforo indica quando a tela pode receber um novo frame"

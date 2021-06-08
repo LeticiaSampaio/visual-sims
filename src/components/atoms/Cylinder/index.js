@@ -30,8 +30,8 @@ const Cylinder = (props) => {
             ref={mesh}
             scale={1.5}
             onClick={(event) => setActive(!active)}
-            onPointerOver={(event) => props.action(true)}
-            onPointerOut={(event) => props.action(false)}>
+            onPointerOver={(event) => { if (props.action) props.action(true) }}
+            onPointerOut={(event) => { if (props.action) props.action(false) }}>
             <cylinderGeometry args={props.size} />
             <meshStandardMaterial color={props.color} />
         </animated.mesh>

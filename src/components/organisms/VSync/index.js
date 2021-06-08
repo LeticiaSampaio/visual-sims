@@ -4,6 +4,7 @@ import { extend, Canvas } from '@react-three/fiber';
 import { Text } from "troika-three-text";
 import fonts from "./fonts";
 
+import Box from '../../atoms/Box';
 import Button from '../../atoms/Button';
 import Header from '../../atoms/Header';
 import CylinderFlow from '../../molecules/CylinderFlow';
@@ -17,12 +18,13 @@ import TrafficLight from '../../molecules/TrafficLight';
 
 import Modal from 'react-modal';
 import { OrbitControls } from '@react-three/drei';
+import Cylinder from '../../atoms/Cylinder';
 
 extend({ Text });
 
 const VSync = () => {
-    const [fps, setFps] = useState(30);
-    const [monitorHz, setMonitorHz] = useState(30);
+    const [fps, setFps] = useState(60);
+    const [monitorHz, setMonitorHz] = useState(60);
     const [vSync, setVSync] = useState(false);
     const [tooltips, setTooltips] = useState(0);
     const [trafficLightStatus, setTrafficLightStatus] = useState(false);
@@ -84,7 +86,7 @@ const VSync = () => {
                         {/* <OrbitControls /> */}
                         <text
                             text={`${tooltips}/3`}
-                            position={[-5, 3, 0]}
+                            position={[-4.5, 3, 0]}
                             {...opts}
                             font={fonts[opts.font]}
                             anchorX="center"
@@ -102,13 +104,6 @@ const VSync = () => {
                             signStatus={trafficLightStatus}
                         />
 
-                        <TrafficLight
-                            position={[0.3, 2, 0]}
-                            size={[0.8, 0.8, 0.5]}
-                            action={addTooltip}
-                            color={trafficLightStatus ? 'red' : 'green'}
-                        />
-
                         <ComputerObject
                             position={[-3, 0, 0]}
                             size={[1.5, 2.5, 0.5]}
@@ -124,6 +119,25 @@ const VSync = () => {
                             anchorY="middle">
                             {opts.materialType === "MeshPhongMaterial" ? (<meshPhongMaterial attach="material" color={opts.color} />) : null}
                         </text>
+
+                        <TrafficLight
+                            position={[3.5, 2.5, 0]}
+                            size={[0.8, 0.8, 0.5]}
+                            action={addTooltip}
+                            color={trafficLightStatus ? 'red' : 'green'}
+                        />
+
+                        <Cylinder
+                            position={[3.5, 1.5, 0]}
+                            size={[0.05, 0.05, 1, 30]}
+                            color='#000'
+                        />
+
+                        <Box
+                            position={[5.2, 0, 0]}
+                            size={[0.1, 1.5, 0.26]}
+                            color={trafficLightStatus ? 'red' : 'green'}
+                        />
 
                         <MonitorScreen
                             vSync={vSync}

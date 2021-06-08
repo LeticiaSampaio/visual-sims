@@ -43,7 +43,7 @@ const MonitorScreen = (props) => {
             <Box position={[3.5, 1.2, 0]} size={[2.1, 0.1, 0.25]} color='#000000' />{/* screen top */}
             <Box position={[3.5, -1.2, 0]} size={[2.1, 0.1, 0.25]} color='#000000' />{/* screen bottom */}
             <Box position={[1.95, 0, 0]} size={[0.1, 1.7, 0.25]} color='#000000' />{/* screen left */}
-            <Box position={[5.05, 0, 0]} size={[0.1, 1.7, 0.25]} color='#000000' />{/* screen right */}
+            <Box position={[5.05, 0, 0]} size={[0.45, 1.7, 0.25]} color='#000000' />{/* screen right */}
             <Box position={[3.5, -1.5, 0]} size={[0.4, 0.4, 0.25]} color='#000000' />{/* stand */}
             <Box position={[3.5, -1.8, 0]} size={[1, 0.1, 0.25]} color='#000000' />{/* stand base */}
 
