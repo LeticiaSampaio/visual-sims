@@ -26,3 +26,10 @@
 .explanation::-webkit-scrollbar-thumb:hover {
     background: #aaa;
 }
+
+.link {
+    background: transparent;
+    color: var(--yellow-grey-2-hex);
+    text-decoration: underline;
+    height: 20px;
+}

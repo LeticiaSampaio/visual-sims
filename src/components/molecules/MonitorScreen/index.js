@@ -25,7 +25,7 @@ const MonitorScreen = (props) => {
             setFrameSteps(frameSteps + 1);
 
             if (frameSteps === 4) {
-                setFrameSteps(-1);
+                setFrameSteps(0);
                 setFirst(!first);
                 if (props.vSync) {
                     props.action(false);

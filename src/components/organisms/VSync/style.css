@@ -128,3 +128,7 @@ input:checked + .slider:before {
 .modal-aviso > p {
   margin: 40px 0;
 }
+
+.conteudo > p {
+  margin: 0px 30px 20px;
+}

@@ -39,7 +39,7 @@ const SimulationGallery = () => {
             </div>
 
             <div className="footer">
-                <Button name="Criar nova simulação" type="primary" action={event => history.push("/nova-simulacao")} />
+                {/* <Button name="Criar nova simulação" type="primary" action={event => history.push("/nova-simulacao")} /> */}
             </div>
 
             <Modal

@@ -9,13 +9,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  HashRouter,
 } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <HashRouter>
+      <Switch>
         <Route path="/nova-simulacao">
           <CreateSimulation />
         </Route>
@@ -28,7 +27,7 @@ function App() {
         <Route path="/">
           <Home />
         </Route>
-      </HashRouter>
+      </Switch>
     </Router>
   );
 }

@@ -29,7 +29,11 @@ const VSync = () => {
     const [tooltips, setTooltips] = useState(0);
     const [trafficLightStatus, setTrafficLightStatus] = useState(false);
 
-    const [modalIsOpen, setIsOpen] = React.useState(true);
+    const [modalIsOpen, setIsOpen] = useState(true);
+    const [message, setMessage] = useState(<div class="modal-aviso"><p>Esta simulação é apenas uma ilustração do conceito de V-Sync.</p>
+        <p>Ela está sendo reproduzida com uma velocidade menor que a real para podermos ver como as coisas acontecem.</p>
+        <p>Passe o mouse pelos objetos e descubra todas as informações extras!</p>
+        <Button name="Prosseguir" type="primary" action={event => closeModal()} /></div>);
 
     function closeModal() {
         setIsOpen(false);
@@ -65,6 +69,15 @@ const VSync = () => {
         if (vSync) {
             setTrafficLightStatus(status);
         }
+    }
+
+    function explanaitionModal() {
+        setMessage(<div class="conteudo">
+            <p>O V-Sync (Vertical Synchronization) é uma funcionalidade disponível em algumas placas de vídeo para sincronização de quadros do computador com a tela.</p>
+            <p>Mas por que isso? Embora nossas tecnologias sejam versáteis podemos enfrentar problemas ao alinhar a quantidade de quadros enviadas pelo computador com a quantidade de quadros que a tela aceita.</p>
+            <p>Essa diferença se torna um problema quando é possível ver uma quebra no quadro. Essa quebra ocorre porque a velocidade de renderização do quadro atual é diferente da velocidade em que os quadros estão chegando. Sendo a renderização feita de cima para baixo, enquanto um quadro está terminando de renderizar o próximo já inicia o processo, por isso acaba parecendo um corte na tela horizontalmente.</p>
+        </div>);
+        setIsOpen(true);
     }
 
     useEffect(() => {
@@ -158,7 +171,11 @@ const VSync = () => {
 
                     </Canvas>
                 </div>
-                <SideMenu title="V-Sync" explanation="O V-Sync (Vertical Synchronization) é uma funcionalidade disponível em algumas placas de vídeo para sincronização de quadros do computador com a tela. Mas por que isso? Embora nossas tecnologias sejam versáteis podemos enfrentar problemas ao alinhar a quantidade de quadros enviadas pelo computador com a quantidade de quadros que a tela aceita. Essa diferença se torna um problema quando é possível ver uma quebra no quadro. Essa quebra ocorre porque a velocidade de renderização do quadro atual é diferente da velocidade em que os quadros estão chegando. Sendo a renderização ser feita de cima para baixo, enquanto um quadro está terminando de renderizar o próximo já inicia o processo, por isso acaba parecendo um corte na tela horizontalmente.">
+                <SideMenu
+                    title="V-Sync"
+                    explanation="O V-Sync (Vertical Synchronization) é uma funcionalidade disponível em algumas placas de vídeo para sincronização de quadros do computador com a tela. Mas por que isso? Embora nossas tecnologias sejam versáteis podemos enfrentar problemas ao alinhar a quantidade de quadros enviadas pelo computador com a quantidade de quadros que a tela aceita. >Essa diferença se torna um problema quando é possível ver uma quebra no quadro. Essa quebra ocorre porque a velocidade de renderização do quadro atual é diferente da velocidade em que os quadros estão chegando. Sendo a renderização feita de cima para baixo, enquanto um quadro está terminando de renderizar o próximo já inicia o processo, por isso acaba parecendo um corte na tela horizontalmente."
+                    action={explanaitionModal}
+                >
                     <h3>Taxa de atualização</h3>
                     <div class="select-frequency">
                         <div class="title-and-tooltip">
@@ -190,7 +207,7 @@ const VSync = () => {
                             <div>
                                 <IoInformationCircleOutline data-tip data-for="computer_information" />
                                 <ReactTooltip id="computer_information" place="top" effect="solid" delayHide={200}>
-                                    <span class="tooltipText">Valores de exemplo</span>
+                                    <span class="tooltipText">O número de frames por segundo do computador não é fixo, variando de acordo com o processamento das imagens e comunicação com a tela, estes valores são apenas para exemplificar o conteúdo</span>
                                 </ReactTooltip>
                             </div>
                             <h4>Computador:</h4>
@@ -242,13 +259,13 @@ const VSync = () => {
                 className="modal"
                 overlayClassName="overlay"
             >
-                {modalIsOpen && (
-                    <div class="modal-aviso">
-                        <p>Esta simulação é apenas uma ilustração do conceito de V-Sync.</p>
-                        <p>Ela está sendo reproduzida com uma velocidade menor que a real para podermos ver como as coisas acontecem.</p>
-                        <p>Passe o mouse pelos objetos e descubra todas as informações extras!</p>
-                        <Button name="Prosseguir" type="primary" action={event => closeModal()} />
-                    </div>)}
+                {modalIsOpen && (<>
+                    <div class="modal-header">
+                        <Button action={closeModal} type="close" name="&times;" />
+                    </div>
+
+                    {message}
+                </>)}
             </Modal>
         </div>
     );
