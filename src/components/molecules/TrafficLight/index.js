@@ -40,7 +40,7 @@ const TrafficLight = (props) => {
 
     return (
         <>
-            <Box position={props.position} size={props.size} color={glow ? 'orange' : '#000000'} action={setHover} />background
+            <Box position={props.position} size={props.size} color={glow ? 'orange' : '#000000'} action={setHover} />{/*background */}
             <Sphere position={props.position} size={[props.size[0] / 2, 32, 32]} color={props.color} action={setHover} />{/* light */}
             {hovered &&
                 <TooltipObject
