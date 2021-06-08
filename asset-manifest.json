@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/visual-sims/static/css/main.486c7902.chunk.css",
-    "main.js": "/visual-sims/static/js/main.7f3d6241.chunk.js",
-    "main.js.map": "/visual-sims/static/js/main.7f3d6241.chunk.js.map",
+    "main.js": "/visual-sims/static/js/main.bb1b4111.chunk.js",
+    "main.js.map": "/visual-sims/static/js/main.bb1b4111.chunk.js.map",
     "runtime-main.js": "/visual-sims/static/js/runtime-main.8eb77079.js",
     "runtime-main.js.map": "/visual-sims/static/js/runtime-main.8eb77079.js.map",
-    "static/js/2.3e72e9d0.chunk.js": "/visual-sims/static/js/2.3e72e9d0.chunk.js",
-    "static/js/2.3e72e9d0.chunk.js.map": "/visual-sims/static/js/2.3e72e9d0.chunk.js.map",
+    "static/js/2.54a5cc4e.chunk.js": "/visual-sims/static/js/2.54a5cc4e.chunk.js",
+    "static/js/2.54a5cc4e.chunk.js.map": "/visual-sims/static/js/2.54a5cc4e.chunk.js.map",
     "static/js/3.ab2eab4a.chunk.js": "/visual-sims/static/js/3.ab2eab4a.chunk.js",
     "static/js/3.ab2eab4a.chunk.js.map": "/visual-sims/static/js/3.ab2eab4a.chunk.js.map",
     "index.html": "/visual-sims/index.html",
     "static/css/main.486c7902.chunk.css.map": "/visual-sims/static/css/main.486c7902.chunk.css.map",
-    "static/js/2.3e72e9d0.chunk.js.LICENSE.txt": "/visual-sims/static/js/2.3e72e9d0.chunk.js.LICENSE.txt",
+    "static/js/2.54a5cc4e.chunk.js.LICENSE.txt": "/visual-sims/static/js/2.54a5cc4e.chunk.js.LICENSE.txt",
     "static/media/new_example_screen_0.3e95c03a.png": "/visual-sims/static/media/new_example_screen_0.3e95c03a.png",
     "static/media/new_example_screen_1.dbdf0bfb.png": "/visual-sims/static/media/new_example_screen_1.dbdf0bfb.png",
     "static/media/new_example_screen_2.ab5f72bc.png": "/visual-sims/static/media/new_example_screen_2.ab5f72bc.png",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8eb77079.js",
-    "static/js/2.3e72e9d0.chunk.js",
+    "static/js/2.54a5cc4e.chunk.js",
     "static/css/main.486c7902.chunk.css",
-    "static/js/main.7f3d6241.chunk.js"
+    "static/js/main.bb1b4111.chunk.js"
   ]
 }
