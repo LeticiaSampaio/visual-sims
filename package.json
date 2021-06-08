@@ -2,7 +2,7 @@
   "name": "visual-sims",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://leticiasampaio.github.io/",
+  "homepage": "https://trabalho-conclusao-curso/visual-sims/",
   "dependencies": {
     "@react-spring/three": "^9.1.2",
     "@react-three/drei": "^5.2.1",
